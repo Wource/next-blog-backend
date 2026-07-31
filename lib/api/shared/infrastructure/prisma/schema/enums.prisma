@@ -1,0 +1,15 @@
+enum Status {
+  pending
+  approved
+  rejected
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum MediaTypes {
+  image
+  thumbnail
+}

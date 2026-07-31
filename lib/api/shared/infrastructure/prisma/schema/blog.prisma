@@ -1,0 +1,45 @@
+model BlogTranslation {
+  id          String @id @default(cuid())
+  blogId      String
+  blog        Blog   @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  language    String // e.g. "en", "fa"
+  title       String
+  content     String
+  description String
+
+  @@unique([blogId, language])
+}
+
+model BlogCategory {
+  id           String                    @id @default(cuid())
+  translations BlogCategoryTranslation[]
+  blogs        Blog[]
+  createdAt    DateTime                  @default(now())
+}
+
+model BlogCategoryTranslation {
+  id         String       @id @default(cuid())
+  categoryId String
+  category   BlogCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  language String // "en", "fa"
+  name     String
+
+  @@unique([categoryId, language])
+}
+
+model Blog {
+  id              String            @id @default(cuid())
+  title           String            @unique
+  slug            String            @unique
+  content         String
+  metaDescription String
+  thumbnail       String
+  status          Status            @default(pending)
+  category        BlogCategory      @relation(fields: [categoryId], references: [id])
+  categoryId      String
+  viewCount       Int               @default(0)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  translations    BlogTranslation[]
+}
