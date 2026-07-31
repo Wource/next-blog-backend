@@ -10,6 +10,8 @@ model User {
   sessions      Session[]
   accounts      Account[]
 
+  comments Comment[]
+
   @@unique([email])
   @@map("user")
 }

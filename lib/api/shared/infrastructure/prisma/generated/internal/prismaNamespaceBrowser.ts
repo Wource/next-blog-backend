@@ -58,7 +58,8 @@ export const ModelName = {
   BlogTranslation: 'BlogTranslation',
   BlogCategory: 'BlogCategory',
   BlogCategoryTranslation: 'BlogCategoryTranslation',
-  Blog: 'Blog'
+  Blog: 'Blog',
+  Comment: 'Comment'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -181,6 +182,20 @@ export const BlogScalarFieldEnum = {
 } as const
 
 export type BlogScalarFieldEnum = (typeof BlogScalarFieldEnum)[keyof typeof BlogScalarFieldEnum]
+
+
+export const CommentScalarFieldEnum = {
+  id: 'id',
+  content: 'content',
+  status: 'status',
+  blogId: 'blogId',
+  userId: 'userId',
+  parentId: 'parentId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
 
 
 export const SortOrder = {
