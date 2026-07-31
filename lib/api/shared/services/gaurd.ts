@@ -3,7 +3,7 @@
 import { Role } from "@/lib/api/shared/infrastructure/prisma/generated/enums";
 import { Prisma } from "@/lib/api/shared/infrastructure/prisma/generated/client";
 
-export type PrismaModel = keyof typeof Prisma.ModelName;
+export type PrismaModel = keyof typeof Prisma.ModelName | "Self";
 
 const ACTIONS = ["CREATE", "READ", "UPDATE", "DELETE"] as const;
 export type Action = (typeof ACTIONS)[number];
@@ -39,5 +39,10 @@ abstract class GaurdABC {
 }
 
 export class Gaurd extends GaurdABC {
-  static guardMap: GuardMap = {};
+  static guardMap: GuardMap = {
+    USER: {
+      Self: ["CREATE", "READ", "UPDATE"],
+      Comment: ["CREATE", "READ", "UPDATE"],
+    },
+  };
 }
