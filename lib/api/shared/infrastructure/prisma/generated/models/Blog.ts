@@ -355,7 +355,7 @@ export type BlogCreateInput = {
   updatedAt?: Date | string
   category: Prisma.BlogCategoryCreateNestedOneWithoutBlogsInput
   translations?: Prisma.BlogTranslationCreateNestedManyWithoutBlogInput
-  comments?: Prisma.CommentCreateNestedManyWithoutPostInput
+  comments?: Prisma.CommentCreateNestedManyWithoutBlogInput
 }
 
 export type BlogUncheckedCreateInput = {
@@ -371,7 +371,7 @@ export type BlogUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   translations?: Prisma.BlogTranslationUncheckedCreateNestedManyWithoutBlogInput
-  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutPostInput
+  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutBlogInput
 }
 
 export type BlogUpdateInput = {
@@ -387,7 +387,7 @@ export type BlogUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.BlogCategoryUpdateOneRequiredWithoutBlogsNestedInput
   translations?: Prisma.BlogTranslationUpdateManyWithoutBlogNestedInput
-  comments?: Prisma.CommentUpdateManyWithoutPostNestedInput
+  comments?: Prisma.CommentUpdateManyWithoutBlogNestedInput
 }
 
 export type BlogUncheckedUpdateInput = {
@@ -403,7 +403,7 @@ export type BlogUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   translations?: Prisma.BlogTranslationUncheckedUpdateManyWithoutBlogNestedInput
-  comments?: Prisma.CommentUncheckedUpdateManyWithoutPostNestedInput
+  comments?: Prisma.CommentUncheckedUpdateManyWithoutBlogNestedInput
 }
 
 export type BlogCreateManyInput = {
@@ -606,7 +606,7 @@ export type BlogCreateWithoutTranslationsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   category: Prisma.BlogCategoryCreateNestedOneWithoutBlogsInput
-  comments?: Prisma.CommentCreateNestedManyWithoutPostInput
+  comments?: Prisma.CommentCreateNestedManyWithoutBlogInput
 }
 
 export type BlogUncheckedCreateWithoutTranslationsInput = {
@@ -621,7 +621,7 @@ export type BlogUncheckedCreateWithoutTranslationsInput = {
   viewCount?: number
   createdAt?: Date | string
   updatedAt?: Date | string
-  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutPostInput
+  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutBlogInput
 }
 
 export type BlogCreateOrConnectWithoutTranslationsInput = {
@@ -652,7 +652,7 @@ export type BlogUpdateWithoutTranslationsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.BlogCategoryUpdateOneRequiredWithoutBlogsNestedInput
-  comments?: Prisma.CommentUpdateManyWithoutPostNestedInput
+  comments?: Prisma.CommentUpdateManyWithoutBlogNestedInput
 }
 
 export type BlogUncheckedUpdateWithoutTranslationsInput = {
@@ -667,7 +667,7 @@ export type BlogUncheckedUpdateWithoutTranslationsInput = {
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  comments?: Prisma.CommentUncheckedUpdateManyWithoutPostNestedInput
+  comments?: Prisma.CommentUncheckedUpdateManyWithoutBlogNestedInput
 }
 
 export type BlogCreateWithoutCategoryInput = {
@@ -682,7 +682,7 @@ export type BlogCreateWithoutCategoryInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   translations?: Prisma.BlogTranslationCreateNestedManyWithoutBlogInput
-  comments?: Prisma.CommentCreateNestedManyWithoutPostInput
+  comments?: Prisma.CommentCreateNestedManyWithoutBlogInput
 }
 
 export type BlogUncheckedCreateWithoutCategoryInput = {
@@ -697,7 +697,7 @@ export type BlogUncheckedCreateWithoutCategoryInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   translations?: Prisma.BlogTranslationUncheckedCreateNestedManyWithoutBlogInput
-  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutPostInput
+  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutBlogInput
 }
 
 export type BlogCreateOrConnectWithoutCategoryInput = {
@@ -844,7 +844,7 @@ export type BlogUpdateWithoutCategoryInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   translations?: Prisma.BlogTranslationUpdateManyWithoutBlogNestedInput
-  comments?: Prisma.CommentUpdateManyWithoutPostNestedInput
+  comments?: Prisma.CommentUpdateManyWithoutBlogNestedInput
 }
 
 export type BlogUncheckedUpdateWithoutCategoryInput = {
@@ -859,7 +859,7 @@ export type BlogUncheckedUpdateWithoutCategoryInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   translations?: Prisma.BlogTranslationUncheckedUpdateManyWithoutBlogNestedInput
-  comments?: Prisma.CommentUncheckedUpdateManyWithoutPostNestedInput
+  comments?: Prisma.CommentUncheckedUpdateManyWithoutBlogNestedInput
 }
 
 export type BlogUncheckedUpdateManyWithoutCategoryInput = {

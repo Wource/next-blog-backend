@@ -3,7 +3,7 @@ model Comment {
   content String
   status  Status @default(pending)
 
-  post   Blog   @relation(fields: [blogId], references: [id])
+  blog   Blog   @relation(fields: [blogId], references: [id])
   blogId String
 
   user   User   @relation(fields: [userId], references: [id])
