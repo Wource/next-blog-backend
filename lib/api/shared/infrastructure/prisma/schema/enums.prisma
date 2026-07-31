@@ -5,8 +5,8 @@ enum Status {
 }
 
 enum Role {
-  USER
-  ADMIN
+  user
+  admin
 }
 
 enum MediaTypes {
