@@ -1,9 +1,9 @@
 import { NextRequest } from "next/server";
 import { prisma } from "@/lib/api/shared/infrastructure/prisma";
 import CheckAuthentication from "@/lib/api/shared/services/CheckAuthentication";
+import CheckAuthorization from "@/lib/api/shared/services/CheckAuthorization";
 import { Response } from "@/lib/api/shared/types/response_schema/base";
 import { ErrorResponse } from "@/lib/api/shared/services/ErrorResponse";
-import { UnAuthorizedError } from "@/lib/api/shared/types/errors";
 import { APIErrorCodes } from "@/lib/api/shared/enums/ErrorCodes";
 import {
   commentRespondZodSchema,
@@ -19,7 +19,7 @@ export async function POST(
 ) {
   try {
     const session = await CheckAuthentication();
-    if (session.user.role !== "ADMIN") throw new UnAuthorizedError();
+    await CheckAuthorization(session, "Comment", "CREATE", "status");
 
     const id = (await params).id;
     if (!id) {
