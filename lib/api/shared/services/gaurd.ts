@@ -17,14 +17,14 @@ abstract class GaurdABC {
   protected static guardMap: GuardMap;
 
   static can(role: Role, model: PrismaModel, action: Action) {
-    if (role === "ADMIN") return true;
+    if (role === "admin") return true;
 
     const ownActions = this.guardMap[role]?.[model] ?? [];
     if (ownActions.includes(action)) return true;
 
-    if (role === "USER") return false; // already checked above, avoid double-checking
+    if (role === "user") return false; // already checked above, avoid double-checking
 
-    const inheritedActions = this.guardMap.USER?.[model] ?? [];
+    const inheritedActions = this.guardMap.user?.[model] ?? [];
     return inheritedActions.includes(action);
   }
 
@@ -32,7 +32,7 @@ abstract class GaurdABC {
     role: Role,
     model: PrismaModel,
   ): UserActivityPermissions {
-    if (role === "ADMIN") return ["CREATE", "DELETE", "READ", "UPDATE"];
+    if (role === "admin") return ["CREATE", "DELETE", "READ", "UPDATE"];
     const allowedActions = this.guardMap[role]?.[model] ?? [];
     return allowedActions;
   }
@@ -40,7 +40,7 @@ abstract class GaurdABC {
 
 export class Gaurd extends GaurdABC {
   static guardMap: GuardMap = {
-    USER: {
+    user: {
       Self: ["CREATE", "READ", "UPDATE"],
       Comment: ["CREATE", "READ", "UPDATE"],
     },
