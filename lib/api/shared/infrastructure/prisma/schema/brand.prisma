@@ -1,0 +1,9 @@
+model Brand {
+  id          String   @id @default(cuid(2))
+  name        String   @unique
+  slug        String   @unique
+  description String
+  logo        String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
