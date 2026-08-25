@@ -86,3 +86,13 @@ export type Blog = Prisma.BlogModel
  * 
  */
 export type Comment = Prisma.CommentModel
+/**
+ * Model Product
+ * 
+ */
+export type Product = Prisma.ProductModel
+/**
+ * Model ProductTranslation
+ * 
+ */
+export type ProductTranslation = Prisma.ProductTranslationModel
