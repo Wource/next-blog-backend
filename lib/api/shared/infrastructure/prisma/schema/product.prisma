@@ -1,0 +1,26 @@
+model Product {
+  id           String               @id @default(cuid(2))
+  slug         String               @unique
+  thumbnail    String
+  images       String[]
+  status       Status               @default(pending)
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
+  translations ProductTranslation[]
+}
+
+model ProductTranslation {
+  id        String  @id @default(cuid(2))
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  language        String // "en", "fa"
+  title           String
+  content         String
+  description     String
+  metaDescription String
+  specifications   Json?
+  nutritionalValue Json?
+
+  @@unique([productId, language])
+}

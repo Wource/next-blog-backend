@@ -82,7 +82,22 @@ export type BlogCategoryTranslation = Prisma.BlogCategoryTranslationModel
  */
 export type Blog = Prisma.BlogModel
 /**
+ * Model Brand
+ * 
+ */
+export type Brand = Prisma.BrandModel
+/**
  * Model Comment
  * 
  */
 export type Comment = Prisma.CommentModel
+/**
+ * Model Product
+ * 
+ */
+export type Product = Prisma.ProductModel
+/**
+ * Model ProductTranslation
+ * 
+ */
+export type ProductTranslation = Prisma.ProductTranslationModel
